@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Movie } from "../../types/movie";
-import fethMovies from "../../services/movieService";
+import fetchMovies from "../../services/movieService";
 import toast, { Toaster } from "react-hot-toast";
 import SearchBar from "../SearchBar/SearchBar";
 import Loader from "../Loader/Loader";
@@ -20,7 +20,7 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await fethMovies(query);
+      const res = await fetchMovies(query);
       if (res.length === 0) {
         toast("No movies found for your request.");
       }
